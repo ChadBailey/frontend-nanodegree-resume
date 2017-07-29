@@ -91,6 +91,17 @@ a {
   margin-top: 10px;
   display: block;
 }
+.seamless-link {
+  color: inherit;
+  text-decoration: inherit;
+  display: inherit;
+}
+
+.seamless-link:hover {
+  color: inherit;
+  text-decoration: underline;
+  display: inherit;
+}
 
 .welcome-message {
   font-style: italic;
