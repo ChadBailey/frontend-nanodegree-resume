@@ -16,10 +16,10 @@ var bio = {
 	display: function() {
 		var formattedName = HTMLheaderName.replace("%data%", bio.name);							//Name
 		var formattedRole = HTMLheaderRole.replace("%data%",bio.role);							//Role
-		var formattedContacts = "" //Placeholder to make the order obvious, and initialize the variable
+		var formattedContacts = ""; //Placeholder to make the order obvious, and initialize the variable
 		var formattedPicture = HTMLbioPic.replace("%data%",bio.biopic); 						//Picture
 		var formattedWelcome = HTMLwelcomeMsg.replace("%data%",bio.welcomeMessage); //Welcome Msg
-		var formattedSkills = "" //Placeholder to make the order obvious, and initialize the variable
+		var formattedSkills = ""; //Placeholder to make the order obvious, and initialize the variable
 		for (var key in bio.contacts) {
 			if (bio.contacts.hasOwnProperty(key) === true) {
 				var value = bio.contacts[key];
@@ -42,8 +42,8 @@ var bio = {
 					//Added linked-in, because that seems appropriate for a resume
 					case "linkedin":
 						//No need to make a whole new theme, just hijack the blog one
-						var theme = HTMLblog.replace("blog","linked in")
-						var	theme = theme.replace("%data%",'<a href=' + value[0] + ' class="seamless-link" target="_blank">' + value[1] + '</a>')
+						var theme = HTMLblog.replace("blog","linked in");
+						var	theme = theme.replace("%data%",'<a href=' + value[0] + ' class="seamless-link" target="_blank">' + value[1] + '</a>');
 						break;
 					case "location":
 						//Add link to search for location on Google maps, sick enhancement!
@@ -141,7 +141,7 @@ var work = {
 			//Apply themes to data
 			var formattedEmployerName = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
 			var formattedJobTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
-			var formattedFullTitle = formattedEmployerName + formattedJobTitle
+			var formattedFullTitle = formattedEmployerName + formattedJobTitle;
 			var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
 			var formattedDescription = HTMLworkDescription.replace("%data%",work.jobs[job].description);
 
@@ -162,8 +162,8 @@ var work = {
             images: array with string urls
       display: function
 
-It is impossible to add a function to a list, so I am making this an object instead.
-I am using a duplicated name (projects.projects) containing my list of objects, and 
+It is impossible to add a function as an element of an array, so I am making this an object instead.
+I am using a duplicated name (projects.projects) containing my array of objects, and 
 a function for displaying.
 */
 var projects = {
@@ -187,15 +187,15 @@ var projects = {
 				$('#projects').append(HTMLprojectStart)
 				var formattedProjectTitle = HTMLprojectTitle.replace("%data%",projects.projects[p].title);
 				var formattedProjectDates = HTMLprojectDates.replace("%data%",projects.projects[p].dates);
-				var formattedProjectDescription = HTMLprojectDescription.replace("%data%",projects.projects[p].description)
-				var formattedProjectImages = ""
+				var formattedProjectDescription = HTMLprojectDescription.replace("%data%",projects.projects[p].description);
+				var formattedProjectImages = "";
 				if (projects.projects[p].images.length > 0) {
 					for (i = 0;i < projects.projects[p].images.length;i++) {
-						var formattedProjectImages = formattedProjectImages.concat(HTMLprojectImage.replace("%data%",projects.projects[p].images[i]))
+						var formattedProjectImages = formattedProjectImages.concat(HTMLprojectImage.replace("%data%",projects.projects[p].images[i]));
 					}
 				}
-				var formattedProject = formattedProjectTitle.concat(formattedProjectDates,formattedProjectDescription,formattedProjectImages)
-				$('.project-entry:last').append(formattedProject)
+				var formattedProject = formattedProjectTitle.concat(formattedProjectDates,formattedProjectDescription,formattedProjectImages);
+				$('.project-entry:last').append(formattedProject);
 			}
 		}
 	}
@@ -213,10 +213,7 @@ var education = {
 
 				I have included the URL here as a result of the requirements listed in section 3.21 of the course. The requirements currently state:
 
-					education
 					education contains an array of schools. Each object in the schools array contains name, location, degree dates and url strings, and amajors array of major strings.
-
-					education also contains an onlineCourses array. Each object in the onlineCourses array should contain a title, school, dates and url strings.
 
 				In addition, the project details listed in Poject section 3 show a structure of:
 					schools: array of objects with
@@ -233,7 +230,8 @@ var education = {
 							url: string
 					display: function
 
-				Having said this, the school URL template (HTMLschoolURL) is conspicuously missing. Due to this, I believe this is an error in the instructions given, however, I thought the URL actually was kindof neat so I left it in making optional
+				Having said this, the school URL template (HTMLschoolURL) is conspicuously missing. Due to this, I believe this is an error in the instructions given, however, I thought
+				the URL actually was kindof neat so I left it in making optional
 
 			*/
 			"url": "http://www.boyd.k12.ky.us/1/Home",
@@ -261,37 +259,37 @@ var education = {
 		}
 	],
 	display: function () {
-		//Feedback to course creator: HTMLschoolStart should be HTMLeducationStart, because this is the education section which contains both schools and online schools.
+		//Feedback to course creator: HTMLschoolStart should be HTMLeducationStart, because this is the education section which contains both schools and online classes.
 		//														Additionally, "Start" is confusing as it implies that there is an HTMLschoolEnd. Using a name like "section", "initialize", or "div" might make this less misleading.
-		//														Also switching between the terms "online classes" versus "online courses" is also confusing.
+		//														Also switching between the terms "online classes" versus "online courses" is confusing as well.
 		$("#education").append(HTMLschoolStart);
-		//I did not like how the given URL template did not produce a valid link, so I made my own
-		var HTMLeducationUrl = '<br><a href="%url%" target="_blank">%name%</a>'
-		var formattedSchools = "" //Initialize
+		//I wanted my links to work, so I made my own template
+		var HTMLeducationUrl = '<br><a href="%url%" target="_blank">%name%</a>';
+		var formattedSchools = ""; //Initialize
 		if (education.schools.length > 0) {
 			for (var i = 0;i < education.schools.length; i++) {
 				//I baked the degree into the name formatting
 				if ("url" in education.schools[i]) {
-					var formattedSchoolName 	= HTMLeducationUrl.replace("%name%",education.schools[i].name + ' - ' + education.schools[i].degree).replace("%url%",education.schools[i].url)
+					var formattedSchoolName 	= HTMLeducationUrl.replace("%name%",education.schools[i].name + ' - ' + education.schools[i].degree).replace("%url%",education.schools[i].url);
 				}
 				else {
-					var formattedSchoolName 	= HTMLeducationUrl.replace("%name%",education.schools[i].name + ' - ' + education.schools[i].degree).replace("%url%","#")
+					var formattedSchoolName 	= HTMLeducationUrl.replace("%name%",education.schools[i].name + ' - ' + education.schools[i].degree).replace("%url%","#");
 				}
-				var formattedSchoolDates		= HTMLschoolDates.replace("%data%",education.schools[i].dates)
-				var formattedSchoolLocation = HTMLschoolLocation.replace("%data%",education.schools[i].location)
-				var formattedMajors 				= "" //Initialize
+				var formattedSchoolDates		= HTMLschoolDates.replace("%data%",education.schools[i].dates);
+				var formattedSchoolLocation = HTMLschoolLocation.replace("%data%",education.schools[i].location);
+				var formattedMajors 				= ""; //Initialize
 				if (education.schools[i].majors.length > 0) {
 					for (var m = 0;m < education.schools[i].majors.length; m++) {
-						var formattedMajors = formattedMajors.concat(HTMLschoolMajor.replace("%data%",education.schools[i].majors[m]))
+						var formattedMajors = formattedMajors.concat(HTMLschoolMajor.replace("%data%",education.schools[i].majors[m]));
 					}
 				}
-				var formattedSchools = formattedSchools.concat(formattedSchoolName,formattedSchoolDates,formattedSchoolLocation,formattedMajors)
+				var formattedSchools = formattedSchools.concat(formattedSchoolName,formattedSchoolDates,formattedSchoolLocation,formattedMajors);
 			}
 			$(".education-entry").append(formattedSchools);
 		}
 		var formattedOnlineCourses = "" //Initialize
 		if (education.onlineCourses.length > 0) {
-			//Included here, as to only show when schools exist
+			//Included here, as to only show when online classes exist
 			$("#education").append(HTMLonlineClasses);
 			for (var i = 0;i < education.onlineCourses.length;i++) {
 				if (i === 0) { $("#education").append(formattedOnlineCourses) }
@@ -302,11 +300,11 @@ var education = {
 				else {
 					var formattedName = HTMLeducationUrl.replace("%url%","#").replace("%name%",education.onlineCourses[i].title + ' - ' + education.onlineCourses[i].school);
 				}
-				formattedDates = HTMLonlineDates.replace("%data%",education.onlineCourses[i].dates)
-				formattedUrl = HTMLonlineURL.replace('href="#">%data%','href="' + education.onlineCourses[i].url + '" target="_blank">' + education.onlineCourses[i].url)
-				formattedOnlineCourses = formattedOnlineCourses.concat(formattedName,formattedDates,formattedUrl)
+				formattedDates = HTMLonlineDates.replace("%data%",education.onlineCourses[i].dates);
+				formattedUrl = HTMLonlineURL.replace('href="#">%data%','href="' + education.onlineCourses[i].url + '" target="_blank">' + education.onlineCourses[i].url);
+				formattedOnlineCourses = formattedOnlineCourses.concat(formattedName,formattedDates,formattedUrl);
 			}
-			$(".education-entry:last").append(formattedOnlineCourses)
+			$(".education-entry:last").append(formattedOnlineCourses);
 		}
 	}
 }
@@ -314,14 +312,15 @@ var education = {
 //maxreplacements prevents infinite loop, and can allow more precise usage
 function replaceAll(string,substring,replacestring,maxreplacements = 5) {
 	//Using >= 0 here, because the position of the found string could be 0
-	replacements = 0
+	replacements = 0;
 	while (string.indexOf(substring) >= 0 && replacements < maxreplacements) {
-		string = string.replace(substring,replacestring)
-		replacements++
+		string = string.replace(substring,replacestring);
+		replacements++;
 	}
-	return string
+	return string;
 }
 
+//do all the things!
 bio.display();
 work.display();
 projects.display();
