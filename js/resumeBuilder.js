@@ -104,21 +104,21 @@ var work = {
 		{
 			"employer":"AT&T",
 			"title":"Process Lead (M&P)",
-			"location": "Jacksonville, FL",
+			"location": "Orange Park, FL",
 			"dates":"Feb 2011 - Apr 2015",
 			"description":"I was placed on a special team responsible for handling call center methods and procedures. My responsibilities included technical documentation, tool building, report building, and SharePoint site collection administration for the entire DSL organization. While there, I created a tool for tracking agent performance in real time for management. The use of this tool expanded wildly resulting in its use being required across the entire DSL Care organization. The tool is still in use at the time of writing this (Jul 2017). This tool was designed using Microsoft Excel Visual Basic for Applications and uses Microsoft SharePoint for record keeping."
 		},
 		{
 			"employer":"AT&T",
 			"title":"Small Business DSL Technical Support Rep II",
-			"location": "Jacksonville, FL",
+			"location": "Orange Park, FL",
 			"dates":"Apr 2010 - Feb 2011",
 			"description":"Assisted small business customers calling in for assistance with DSL internet service. I continued taking residential calls, and my assistance for technicians and overseas escalations extended to small business customers."
 		},
 		{
 			"employer":"AT&T",
 			"title":"Residential DSL Technical Support Rep II",
-			"location": "Jacksonville, FL",
+			"location": "Orange Park, FL",
 			"dates":"Nov 2009 - Apr 2010",
 			"description":"Assisted residential customers calling in for assistance with DSL internet service. Being Tier-II, I also assisted technicians during installs, and took escalations from the overseas helpdesk."
 		},
