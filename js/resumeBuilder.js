@@ -131,12 +131,14 @@ var work = {
 			var formattedJobTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
 			var formattedFullTitle = formattedEmployerName + formattedJobTitle;
 			var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+			var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
 			var formattedDescription = HTMLworkDescription.replace("%data%",work.jobs[job].description);
 
 			//Apply themed data to DOM
 			$("#workExperience").append(HTMLworkStart);
 			$(".work-entry:last").append(formattedFullTitle);
 			$(".work-entry:last").append(formattedDates);
+			$(".work-entry:last").append(formattedLocation);
 			$(".work-entry:last").append(formattedDescription);
 		}
 	}
