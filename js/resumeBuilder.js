@@ -28,37 +28,37 @@ var bio = {
 						var theme = HTMLmobile.replace("%data%",'<a href="tel:%data%" class="seamless-link">%data%</a>');
 						break;
 					case "email":
-						var theme = HTMLemail.replace("%data%",'<a href="mailto:%data%" class="seamless-link">%data%</a>');
+						theme = HTMLemail.replace("%data%",'<a href="mailto:%data%" class="seamless-link">%data%</a>');
 						break;
 					case "twitter":
-						var theme = HTMLtwitter.replace("%data%",'@<a href="https://twitter.com/%data%" class="seamless-link" target="_blank">%data%</a>');
+						theme = HTMLtwitter.replace("%data%",'@<a href="https://twitter.com/%data%" class="seamless-link" target="_blank">%data%</a>');
 						break;
 					case "github":
-						var theme = HTMLgithub.replace("%data%",'@<a href="https://github.com/%data%" class="seamless-link" target="_blank">%data%</a>');
+						theme = HTMLgithub.replace("%data%",'@<a href="https://github.com/%data%" class="seamless-link" target="_blank">%data%</a>');
 						break;
 					case "blog":
-						var theme = HTMLblog.replace("%data%",'<a href=' + value[0] + ' class="seamless-link" target="_blank">' + value[1] + '</a>');
+						theme = HTMLblog.replace("%data%",'<a href=' + value[0] + ' class="seamless-link" target="_blank">' + value[1] + '</a>');
 						break;
 					//Added linked-in, because that seems appropriate for a resume
 					case "linkedin":
 						//No need to make a whole new theme, just hijack the blog one
-						var theme = HTMLblog.replace("blog","linked in");
-						var	theme = theme.replace("%data%",'<a href=' + value[0] + ' class="seamless-link" target="_blank">' + value[1] + '</a>');
+						theme = HTMLblog.replace("blog","linked in");
+						theme = theme.replace("%data%",'<a href=' + value[0] + ' class="seamless-link" target="_blank">' + value[1] + '</a>');
 						break;
 					case "location":
 						//Add link to search for location on Google maps, sick enhancement!
-						var theme = HTMLlocation.replace("%data%",'<a href="https://google.com/maps/search/%data%" class="seamless-link" target="_blank">%data%</a>');
+						theme = HTMLlocation.replace("%data%",'<a href="https://google.com/maps/search/%data%" class="seamless-link" target="_blank">%data%</a>');
 						break;
 					default:
-						var theme = HTMLcontactGeneric;
+						theme = HTMLcontactGeneric;
 						break;
 				}
-				var formattedContacts = formattedContacts + replaceAll(theme.replace("%contact%",key),"%data%",value);
+				formattedContacts = formattedContacts + replaceAll(theme.replace("%contact%",key),"%data%",value);
 			}
 		}
 		if (bio.skills.length > 0) {
 			for (var i = 0; i < bio.skills.length; i++) {
-				var formattedSkills = formattedSkills + HTMLskills.replace("%data%", bio.skills[i]);
+				formattedSkills = formattedSkills + HTMLskills.replace("%data%", bio.skills[i]);
 			}
 		}
 		//Order matters!
@@ -70,7 +70,7 @@ var bio = {
 		$("#header").append(HTMLskillsStart);					//Must be added here, due to #skills not existing until it is added (prefer this to be included in the skills formatting routine)
 		$("#skills").append(formattedSkills);					//Add skills
 	}
-}
+};
 var work = {
 	"jobs": [
 		{
@@ -99,40 +99,28 @@ var work = {
 			"title":"U-Verse Tier-II SOS",
 			"location": "Richardson, TX",
 			"dates":"Apr 2015 - Apr 2016",
-			"description":"Resolve escalated customer issues with U-Verse service. At end of term, I was placed on a special project for \
-										analyzing Residential Gateway firmware issues. My role was to lead a team of 10 agents who called customers surveying \
-										their experience with firmware upgrades. I was responsible for reporting, development and improvement of call scripts, \
-										development and maintenance of Microsoft SharePoint, and reporting findings back to engineering team."
+			"description":"Resolve escalated customer issues with U-Verse service. At end of term, I was placed on a special project for analyzing Residential Gateway firmware issues. My role was to lead a team of 10 agents who called customers surveying their experience with firmware upgrades. I was responsible for reporting, development and improvement of call scripts, development and maintenance of Microsoft SharePoint, and reporting findings back to engineering team."
 		},
 		{
 			"employer":"AT&T",
 			"title":"Process Lead (M&P)",
 			"location": "Jacksonville, FL",
 			"dates":"Feb 2011 - Apr 2015",
-			"description":"I was placed on a special team responsible for handling call center methods and procedures. My \
-										responsibilities included technical documentation, tool building, report building, and SharePoint \
-										site collection administration for the entire DSL organization. While there, I created a tool for \
-										tracking agent performance in real time for management. The use of this tool expanded wildly \
-										resulting in its use being required across the entire DSL Care organization. The tool is \
-										still in use at the time of writing this (Jul 2017). This tool was designed using Microsoft Excel \
-										Visual Basic for Applications and uses Microsoft SharePoint for record keeping."
+			"description":"I was placed on a special team responsible for handling call center methods and procedures. My responsibilities included technical documentation, tool building, report building, and SharePoint site collection administration for the entire DSL organization. While there, I created a tool for tracking agent performance in real time for management. The use of this tool expanded wildly resulting in its use being required across the entire DSL Care organization. The tool is still in use at the time of writing this (Jul 2017). This tool was designed using Microsoft Excel Visual Basic for Applications and uses Microsoft SharePoint for record keeping."
 		},
 		{
 			"employer":"AT&T",
 			"title":"Small Business DSL Technical Support Rep II",
 			"location": "Jacksonville, FL",
 			"dates":"Apr 2010 - Feb 2011",
-			"description":"Assisted small business customers calling in for assistance with DSL internet service. I continued \
-										taking residential calls, and my assistance for technicians and overseas escalations extended to \
-										small business customers."
+			"description":"Assisted small business customers calling in for assistance with DSL internet service. I continued taking residential calls, and my assistance for technicians and overseas escalations extended to small business customers."
 		},
 		{
 			"employer":"AT&T",
 			"title":"Residential DSL Technical Support Rep II",
 			"location": "Jacksonville, FL",
 			"dates":"Nov 2009 - Apr 2010",
-			"description":"Assisted residential customers calling in for assistance with DSL internet service. Being Tier-II, I also \
-										assisted technicians during installs, and took escalations from the overseas helpdesk."
+			"description":"Assisted residential customers calling in for assistance with DSL internet service. Being Tier-II, I also assisted technicians during installs, and took escalations from the overseas helpdesk."
 		},
 		
 	],
@@ -152,7 +140,7 @@ var work = {
 			$(".work-entry:last").append(formattedDescription);
 		}
 	}
-}
+};
 
 /*The criteria states that projects should contain an array of objects with
       projects: array of objects with
@@ -182,24 +170,25 @@ var projects = {
 		},
 	],
 	display: function() {
+    var formattedProject = "";
 		if (projects.projects.length > 0) {
 			for (p = 0;p < projects.projects.length;p++) {
-				$('#projects').append(HTMLprojectStart)
+				$('#projects').append(HTMLprojectStart);
 				var formattedProjectTitle = HTMLprojectTitle.replace("%data%",projects.projects[p].title);
 				var formattedProjectDates = HTMLprojectDates.replace("%data%",projects.projects[p].dates);
 				var formattedProjectDescription = HTMLprojectDescription.replace("%data%",projects.projects[p].description);
 				var formattedProjectImages = "";
 				if (projects.projects[p].images.length > 0) {
 					for (i = 0;i < projects.projects[p].images.length;i++) {
-						var formattedProjectImages = formattedProjectImages.concat(HTMLprojectImage.replace("%data%",projects.projects[p].images[i]));
+						formattedProjectImages = formattedProjectImages.concat(HTMLprojectImage.replace("%data%",projects.projects[p].images[i]));
 					}
 				}
-				var formattedProject = formattedProjectTitle.concat(formattedProjectDates,formattedProjectDescription,formattedProjectImages);
+				formattedProject = formattedProjectTitle.concat(formattedProjectDates,formattedProjectDescription,formattedProjectImages);
 				$('.project-entry:last').append(formattedProject);
 			}
 		}
 	}
-}
+};
 
 var education = {
 	"schools": [
@@ -266,53 +255,63 @@ var education = {
 		//I wanted my links to work, so I made my own template
 		var HTMLeducationUrl = '<br><a href="%url%" target="_blank">%name%</a>';
 		var formattedSchools = ""; //Initialize
-		if (education.schools.length > 0) {
+		var formattedSchoolName;
+		var formattedMajors;
+    var formattedSchoolDates;
+    var formattedSchoolLocation;
+    var formattedName;
+    var formattedDates;
+    var formattedUrl;
+    if (education.schools.length > 0) {
 			for (var i = 0;i < education.schools.length; i++) {
 				//I baked the degree into the name formatting
 				if ("url" in education.schools[i]) {
-					var formattedSchoolName 	= HTMLeducationUrl.replace("%name%",education.schools[i].name + ' - ' + education.schools[i].degree).replace("%url%",education.schools[i].url);
+					formattedSchoolName 	= HTMLeducationUrl.replace("%name%",education.schools[i].name + ' - ' + education.schools[i].degree).replace("%url%",education.schools[i].url);
 				}
 				else {
-					var formattedSchoolName 	= HTMLeducationUrl.replace("%name%",education.schools[i].name + ' - ' + education.schools[i].degree).replace("%url%","#");
+					formattedSchoolName 	= HTMLeducationUrl.replace("%name%",education.schools[i].name + ' - ' + education.schools[i].degree).replace("%url%","#");
 				}
-				var formattedSchoolDates		= HTMLschoolDates.replace("%data%",education.schools[i].dates);
-				var formattedSchoolLocation = HTMLschoolLocation.replace("%data%",education.schools[i].location);
-				var formattedMajors 				= ""; //Initialize
+				formattedSchoolDates		= HTMLschoolDates.replace("%data%",education.schools[i].dates);
+				formattedSchoolLocation = HTMLschoolLocation.replace("%data%",education.schools[i].location);
+				formattedMajors 				= ""; //Initialize
 				if (education.schools[i].majors.length > 0) {
 					for (var m = 0;m < education.schools[i].majors.length; m++) {
-						var formattedMajors = formattedMajors.concat(HTMLschoolMajor.replace("%data%",education.schools[i].majors[m]));
+						formattedMajors = formattedMajors.concat(HTMLschoolMajor.replace("%data%",education.schools[i].majors[m]));
 					}
 				}
-				var formattedSchools = formattedSchools.concat(formattedSchoolName,formattedSchoolDates,formattedSchoolLocation,formattedMajors);
+				formattedSchools = formattedSchools.concat(formattedSchoolName,formattedSchoolDates,formattedSchoolLocation,formattedMajors);
 			}
 			$(".education-entry").append(formattedSchools);
 		}
-		var formattedOnlineCourses = "" //Initialize
+    var formattedOnlineCourses = ""; //Initialize
 		if (education.onlineCourses.length > 0) {
 			//Included here, as to only show when online classes exist
 			$("#education").append(HTMLonlineClasses);
-			for (var i = 0;i < education.onlineCourses.length;i++) {
-				if (i === 0) { $("#education").append(formattedOnlineCourses) }
+			for (var j = 0;j < education.onlineCourses.length;j++) {
+				if (j === 0) { $("#education").append(formattedOnlineCourses); }
 				$("#education").append(HTMLschoolStart);
-				if ("url" in education.onlineCourses[i]) {
-					var formattedName = HTMLeducationUrl.replace("%url%",education.onlineCourses[i].url).replace("%name%",education.onlineCourses[i].title + ' - ' + education.onlineCourses[i].school);
+				if ("url" in education.onlineCourses[j]) {
+					formattedName = HTMLeducationUrl.replace("%url%",education.onlineCourses[j].url).replace("%name%",education.onlineCourses[j].title + ' - ' + education.onlineCourses[j].school);
 				}
 				else {
-					var formattedName = HTMLeducationUrl.replace("%url%","#").replace("%name%",education.onlineCourses[i].title + ' - ' + education.onlineCourses[i].school);
+					formattedName = HTMLeducationUrl.replace("%url%","#").replace("%name%",education.onlineCourses[j].title + ' - ' + education.onlineCourses[j].school);
 				}
-				formattedDates = HTMLonlineDates.replace("%data%",education.onlineCourses[i].dates);
-				formattedUrl = HTMLonlineURL.replace('href="#">%data%','href="' + education.onlineCourses[i].url + '" target="_blank">' + education.onlineCourses[i].url);
+				formattedDates = HTMLonlineDates.replace("%data%",education.onlineCourses[j].dates);
+				formattedUrl = HTMLonlineURL.replace('href="#">%data%','href="' + education.onlineCourses[j].url + '" target="_blank">' + education.onlineCourses[j].url);
 				formattedOnlineCourses = formattedOnlineCourses.concat(formattedName,formattedDates,formattedUrl);
 			}
 			$(".education-entry:last").append(formattedOnlineCourses);
 		}
 	}
-}
+};
 
 //maxreplacements prevents infinite loop, and can allow more precise usage
-function replaceAll(string,substring,replacestring,maxreplacements = 5) {
+function replaceAll(string,substring,replacestring,maxreplacements) {
+  if (maxreplacements < 1) {
+    maxreplacements = 5;
+  }
 	//Using >= 0 here, because the position of the found string could be 0
-	replacements = 0;
+	var replacements = 0;
 	while (string.indexOf(substring) >= 0 && replacements < maxreplacements) {
 		string = string.replace(substring,replacestring);
 		replacements++;
